@@ -21,7 +21,7 @@ export class UserListComponent {
     });
   }
 
-  // Mostrar detaller de usuario en consola al requerirlo
+  // Mostrar detalle de usuario en consola al requerirlo
   showUserDetails(id: number) {
     this.UserService.getUserById(id).subscribe(user => {
       console.log('Usuario completo:', user)
