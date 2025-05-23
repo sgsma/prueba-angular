@@ -9,17 +9,19 @@ import { UserService } from '../../service/user.service';
 })
 export class UserListComponent {
 
-  users: any[] = [];
+  users: any[] = []; //Arreglo para almacenar los usuarios
 
   constructor(private UserService: UserService) {}
 
+  // Obtener los 5 primeros usuarios al cargar el componente
   ngOnInit(): void {
     this.UserService.getUsers().subscribe(data => {
       console.log('Recibiendo datos de usuarios desde la API', data)
-      this.users = data.slice(0,5) // <- Esto lo que permite es que solo se muestren los 5 primeros
+      this.users = data.slice(0,5) 
     });
   }
 
+  // Mostrar detaller de usuario en consola al requerirlo
   showUserDetails(id: number) {
     this.UserService.getUserById(id).subscribe(user => {
       console.log('Usuario completo:', user)

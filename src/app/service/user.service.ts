@@ -18,7 +18,7 @@ export class UserService {
     return this.http.get<any[]>(this.apiUrl)
   }
 
-  // Método que obtiene el usuario por
+  // Método simulado para enviar datos
   getUserById(id: number): Observable<any[]> {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
   }

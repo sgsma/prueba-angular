@@ -1,27 +1,31 @@
-<form #form="ngForm" (ngSubmit) = "onSubmit(form)">
-
-    <div class="form-group">
-        <label>Nombre:</label>
-        <input type="text" name="name" ngModel required />
+<div class="form-wrapper">
+  <div class="form-card">
+    <div class="form-header">
+      <h2>Nuevo Usuario</h2>
+      <div class="tabs">
+        <span class="active">Personal</span>
+        <span>Dirección</span>
+        <span>Facturación</span>
+      </div>
     </div>
 
-    <div class="form-group">
-        <label>Email</label>
-        <input type="email" name="email" ngModel required email>
-    </div>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <div class="input-row">
+        <input type="text" name="firstName" ngModel placeholder="Primer Nombre" required />
+        <input type="text" name="lastName" ngModel placeholder="Apellido" required />
+      </div>
 
-    <div class="form-group">
-        <label>Teléfono</label>
-        <input type="text" name="phone" ngModel required>
-    </div>
+      <input type="email" name="email" ngModel placeholder="Dirección de Email" required email />
+      <input type="text" name="phone" ngModel placeholder="Número de teléfono" required />
 
-    <div class="form-group">
-        <label>Dirección</label>
-        <input type="text" name="address" ngModel required>
-    </div>
+      <div class="tags-input">
+        <span class="tag">Mercado</span>
+        <span class="tag">Ventas</span>
+      </div>
 
-    <button type="submit">Enviar</button>
-
-    <p *ngIf="successMessage">{{successMessage}}</p>
-
-</form>
+      <div class="button-row">
+        <button type="submit" class="submit">Guardar</button>
+      </div>
+    </form>
+  </div>
+</div>
