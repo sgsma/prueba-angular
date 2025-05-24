@@ -13,15 +13,18 @@ export class UserFormComponent {
   successMessage = "";
 
   
-  constructor(private UserService: UserService) {} 
+  constructor(private userService: UserService) {} 
   
   //Método del envío del formulario
-  onSubmit(form: NgForm) {
+  onSubmit(form: NgForm): void {
     if (form.valid) {
-      this.successMessage = 'Información enviada coorectamente';
-      console.log('Datos enviados:', form.value);
-      form.reset();
+      this.userService.addUser(form.value).subscribe((response) => {
+        console.log('Respuesta del servidor:', response);
+        alert('Datos enviados correctamente');
+        form.reset();
+      });
+    } else {
+      alert('Por favor completa todos los campos correctamente');
     }
   }
-
 }

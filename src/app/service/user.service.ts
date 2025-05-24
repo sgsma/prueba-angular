@@ -22,4 +22,9 @@ export class UserService {
   getUserById(id: number): Observable<any[]> {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
+
+  // Método para enviar los datos
+  addUser(user: any) {
+    return this.http.post('https://jsonplaceholder.typicode.com/users', user);
+  }
 }
